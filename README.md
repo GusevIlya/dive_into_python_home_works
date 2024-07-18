@@ -1,1 +1,2 @@
-# dive_into_python_home_works
+# Курс "Погружение в Python"
+## Домашние задания

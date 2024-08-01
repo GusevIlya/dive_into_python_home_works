@@ -19,13 +19,13 @@ CMD_WITHDRAW = 'с'
 CMD_EXIT = 'в'
 
 
-def request_to_user():
+def request_to_user() -> int:
     global MULTIPLICITY
     total = int(input(f'Введите сумму, кратную {MULTIPLICITY}: '))
     return total
 
 
-def check_for_correct(total):
+def check_for_correct(total: int) -> int:
     global MULTIPLICITY
     while total % MULTIPLICITY:
         print('Некорректная сумма')
@@ -33,13 +33,13 @@ def check_for_correct(total):
     return total
 
 
-def deposit(bal, oper, total):
+def deposit(bal: decimal.Decimal, oper: int, total: int) -> tuple:
     oper += 1
     bal += total
     return bal, oper, total
 
 
-def withdraw(bal, oper, total):
+def withdraw(bal: decimal.Decimal, oper: int, total: int) -> tuple:
     global PERCENT, MAX_LIMIT, MAX_LIMIT
     tax = total * PERCENT
     if tax < MIN_LIMIT:
@@ -55,7 +55,7 @@ def withdraw(bal, oper, total):
     return bal, oper, total
 
 
-def bonus_crediting(bal):
+def bonus_crediting(bal: decimal.Decimal) -> tuple:
     global PERCENT_BONUS
     bonus = bal * PERCENT_BONUS
     bal += bonus
@@ -63,7 +63,7 @@ def bonus_crediting(bal):
     return bal, bonus
 
 
-def rich(bal):
+def rich(bal: decimal.Decimal) -> decimal.Decimal:
     global PERCENT_RICHNESS
     sum_percent = bal * PERCENT_RICHNESS
     bal -= sum_percent

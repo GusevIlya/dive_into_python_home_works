@@ -8,7 +8,7 @@ def fibonacci(n: int):
     yield prev_num
     if n > 1:
         yield next_num
-    for _ in range(3, n + 1):
+    for _ in range(n - 2):
         fib = prev_num + next_num
         yield fib
         prev_num, next_num = next_num, fib
